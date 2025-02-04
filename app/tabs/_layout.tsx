@@ -8,26 +8,20 @@ const TabsLayout = () => {
       <Tabs.Screen
         name="index"
         options={{
-          title: 'Log In',
-          tabBarIcon: ({ color, size }) => <Ionicons  size={28} name="home-outline" color={color} />,
+          title: 'Sign Out',
+          tabBarIcon: ({ color, size }) => <Ionicons size={28} name="home-outline" color={color} />,
         }}
       />
       <Tabs.Screen
-        name="productos/index"
-        options={{
-          title:'Sing Out',
-          tabBarIcon: ({ color }) => <Ionicons size={28} name="film-outline" color={color} />,
-        }}
-      />
-      <Tabs.Screen
-        name="configuracion/index"
+        name="datos/index"
         options={{
           title: 'Datos',
-          tabBarIcon: ({ color }) => <Ionicons size={28} name="construct-outline" color={color} />,
+          tabBarIcon: ({ color }) => <Ionicons size={28} name="document-text-outline" color={color} />,
         }}
       />
     </Tabs>
-  )
-}
+  );
+};
 
-export default TabsLayout
+export default TabsLayout;
+
