@@ -8,15 +8,15 @@ const TabsLayout = () => {
       <Tabs.Screen
         name="index"
         options={{
-          title: 'Sign Out',
-          tabBarIcon: ({ color, size }) => <Ionicons size={28} name="home-outline" color={color} />,
+          title: 'Datos',
+          tabBarIcon: ({ color, size }) => <Ionicons size={28} name="document-text-outline" color={color} />,
         }}
       />
       <Tabs.Screen
-        name="datos/index"
+        name="signOut/index"
         options={{
-          title: 'Datos',
-          tabBarIcon: ({ color }) => <Ionicons size={28} name="document-text-outline" color={color} />,
+          title: 'Sign Out',
+          tabBarIcon: ({ color }) => <Ionicons size={28} name="home-outline" color={color} />,
         }}
       />
     </Tabs>

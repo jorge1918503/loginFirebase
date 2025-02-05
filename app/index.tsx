@@ -14,6 +14,8 @@ export default function Index() {
   const login = async () => {
     try{
       const user = await (signInWithEmailAndPassword(auth,email, password));
+      setEmail('');
+      setPassword('');
     }catch(error : any){
       console.log(error);
       Alert.alert("Inicio de sesión incorrecto", error.message);
@@ -23,6 +25,9 @@ export default function Index() {
   const register = async () => {
     try{
       const user = await (createUserWithEmailAndPassword(auth,email, password));
+      setEmail('');
+      setPassword('');
+      router.push('/tabs');
     }catch(error : any){
       console.log(error);
       Alert.alert("Error al registrar al usuario", error.message);
@@ -34,14 +39,14 @@ export default function Index() {
     <View style={GlobalStyles.containerCentrado}>
       <Text style={GlobalStyles.titulo}>Iniciar sesión</Text>
 
-      <TextInput placeholder="Usuario" style={GlobalStyles.loginInputText} />
-      <TextInput placeholder="Contraseña" style={GlobalStyles.loginInputText} />
+      <TextInput placeholder="Email" style={GlobalStyles.loginInputText} value={email} onChangeText={setEmail}/>
+      <TextInput placeholder="Contraseña" style={GlobalStyles.loginInputText} value={password} onChangeText={setPassword}/>
 
       <View style={GlobalStyles.loginButtonContainer}>
-          <Pressable style={GlobalStyles.loginButton} onPress={() => router.push("/tabs")}>
+          <Pressable style={GlobalStyles.loginButton} onPress={login}>
             <Text style={GlobalStyles.loginButtonText}>Iniciar Sesión</Text>
           </Pressable>
-          <Pressable style={GlobalStyles.loginButton} onPress={() => router.push("/tabs")}>
+          <Pressable style={GlobalStyles.loginButton} onPress={register}>
             <Text style={GlobalStyles.loginButtonText}>Registrate</Text>
           </Pressable>
         </View>
