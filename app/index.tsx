@@ -12,25 +12,22 @@ export default function Index() {
   const [password, setPassword] = useState('');
 
   const login = async () => {
-    try{
-      const user = await (signInWithEmailAndPassword(auth,email, password));
-      setEmail('');
-      setPassword('');
-    }catch(error : any){
+    try {
+      const user = await (signInWithEmailAndPassword(auth,email,password));
+      if (user) router.replace('/tabs')
+    } catch (error:any) {
       console.log(error);
-      Alert.alert("Inicio de sesión incorrecto", error.message);
+      Alert.alert("Inicio de sesión incorrecto", "error.message");
     }
   }
 
   const register = async () => {
-    try{
-      const user = await (createUserWithEmailAndPassword(auth,email, password));
-      setEmail('');
-      setPassword('');
-      router.push('/tabs');
-    }catch(error : any){
+    try {
+      const user = await (createUserWithEmailAndPassword(auth,email,password));
+      if (user) router.replace('/tabs');
+    } catch (error: any) {
       console.log(error);
-      Alert.alert("Error al registrar al usuario", error.message);
+      Alert.alert("Error al registrar el usuario", error.message);
     }
   }
 
@@ -40,7 +37,7 @@ export default function Index() {
       <Text style={GlobalStyles.titulo}>Iniciar sesión</Text>
 
       <TextInput placeholder="Email" style={GlobalStyles.loginInputText} value={email} onChangeText={setEmail}/>
-      <TextInput placeholder="Contraseña" style={GlobalStyles.loginInputText} value={password} onChangeText={setPassword}/>
+      <TextInput placeholder="Contraseña" style={GlobalStyles.loginInputText} value={password} onChangeText={setPassword} secureTextEntry/>
 
       <View style={GlobalStyles.loginButtonContainer}>
           <Pressable style={GlobalStyles.loginButton} onPress={login}>

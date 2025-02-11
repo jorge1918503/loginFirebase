@@ -46,5 +46,13 @@ export const GlobalStyles = StyleSheet.create({
         fontWeight: 'bold',
         width: '100%',
         textAlign: 'center'
+    },
+    pantallaDatos:{
+        flex: 1,
+    },
+    introducirTareaFlex:{
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        margin: 10,
     }
 })
